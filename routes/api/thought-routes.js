@@ -8,7 +8,7 @@ const {
     deleteThought,
     addReaction,
     deleteReaction
-} = require//('Something/controller');
+} = require('../../../NoSQL-Social-Network-API-main/controllers/thought-controller');
 
 // /api/thoughts/
 router.route('/')
@@ -19,18 +19,18 @@ router.route('/:userId')
 .post(addThought)
 
 // /api/thoughts/:thoughtId
-router.route('')
+router.route('/:thoughtId')
 .get(getThoughtByID)
 .put(updateThought)
 .delete(deleteThought)
 
 // /api/thoughts/:thoughtId/reactions
-router.route('')
+router.route('/:thoughtId/reactions')
 .post(addReaction)
 
 // /api/thoughts/:thoughtId/reactions/:reactionId
 
-router.route('')
+router.route('/:thoughtId/reactions/:reactionId')
 .delete(deleteReaction)
 
 module.exports = router;
