@@ -1,7 +1,37 @@
 {
   "dependencies": {
     "express": "^4.18.1",
-    "mongoose": "^6.5.0",
+    "mongoose": "^6.5.1",
     "nodemon": "^2.0.19"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "name": "api-nosql",
+  "description": "* [Description](#description)\r * [Installation](#installation)\r * [Usage](#usage)\r * [Contributing](#contributing)\r * [Tests](#tests)\r * [Questions](#questions)",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilemonKirlles/api-nosql.git"
+  },
+  "keywords": [
+    "mongoose",
+    "mongoDB",
+    "express",
+    "javascript",
+    "html",
+    "css",
+    "API",
+    "social",
+    "network",
+    "media"
+  ],
+  "author": "Philemon AbdEllah Kirlles",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/PhilemonKirlles/api-nosql/issues"
+  },
+  "homepage": "https://github.com/PhilemonKirlles/api-nosql#readme"
 }

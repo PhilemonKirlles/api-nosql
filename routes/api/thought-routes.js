@@ -8,7 +8,7 @@ const {
     deleteThought,
     addReaction,
     deleteReaction
-} = require('../../../NoSQL-Social-Network-API-main/controllers/thought-controller');
+} = require('../../controllers/thought-controller');
 
 // /api/thoughts/
 router.route('/')

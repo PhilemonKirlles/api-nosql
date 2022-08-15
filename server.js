@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -10,10 +11,16 @@ app.use(express.static('public'));
 
 app.use(require('./routes'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/noSQL-project', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/webapi_db',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
+
 
 // Use this to log mongo queries being executed!
 mongoose.set('debug', true);
