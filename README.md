@@ -1,44 +1,63 @@
-﻿# NoSQL-Social-Network-API
+﻿# Social Network API
+
+[[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+![Project Vedio]()
+
+<>
+
+---
 
 ## Table of Contents
 
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [Questions](#questions)
+- [Description](#description)
+- [How To Use](#how-to-use)
+- [References](#references)
+- [License](#license)
+- [Author Info](#author-info)
+
+---
 
 ## Description
 
-I created this Social Network API from scratch using MongoDB (a NoSQL database), Mongoose, and Express.js.
+Social Network API is a NOSQL Application using Express.js, MongoDB, and Mongoose ODM. It is application where friends can connect, share thoughts, and interact. 
 
-A user can use this API to create new users with a valid username and email, add other users as friends, and post "thoughts" and "reactions" (similar to comments and replies). Users can also update and delete thoughts and reactions as well as remove friends. Try it out by creating your own username and start interacting with friends!
+## Purpose
 
-## Installation
+An API for building a social network
 
-To run this code, simply clone the code, open the cloned code in your favorite IDE, run `npm install` to install dependencies and then run `npm start` to start the server.
+### User Story
 
-## Usage
+"AS A social media startup
+I WANT an API for my social network that uses a NoSQL database
+SO THAT my website can handle large amounts of unstructured data"
 
-See [this](https://www.youtube.com/watch?v=EE18HzbpbPs) video to see an example of how this Social Network API is used.
+#### Installation
 
-## License
+- If not already installed:
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+- Install Node.js
 
-Copyright 2021 ggamb
+- run the 'node server.js' command to start the application in Terminal
 
-This project is licensed under the MIT License. For the full license see this [link](https://opensource.org/licenses/MIT)
 
-## Contributing
+-npm run start
 
-If you would like to contribute, feel free to fork this code and try it yourself.
 
-## Tests
+## Deployment Site
 
-I did not use tests for this project.
 
-## Questions?
+### License
 
-My Github: [ggamb](https://github.com/ggamb)
+UConn bootcamp class License
+
+Copyright (c) [2022] [CatFishChisel]
+
+## Contact
+
+-name- [AbdEllah,Philemon]
+
+- [Email](:philemon.kirlles@gmail.com 'Email')
+- [GitHub](https://github.com/PhilemonKirlles 'GitHub')
+
+---
