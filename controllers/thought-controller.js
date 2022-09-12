@@ -1,10 +1,31 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
-
-    getThoughts(req, res) {
+// Create a new thought
+createThought({ params, body }, res) {
+    Thought.create(body)
+        .then(({ _id }) => {
+            return User.findOneAndUpdate(
+                { _id: params.userId },
+                { $push: { thoughts: _id } },
+                { new: true }
+            );
+        })
+        .then(thoughtData => {
+            if (!thoughtData) {
+                res.status(404).json({ message: 'Incorrect thought data!' });
+                return;
+            }
+            res.json(thoughtData);
+        })
+        .catch(err => res.json(err));
+},
+    getAllThoughts(req, res) {
         Thought.find({})
-            .then(thoughtData => res.json(thoughtData))
+        .populate({path: 'reactions', select: '-__v'})
+        .select('-__v')
+    
+        .then(thoughtData => res.json(thoughtData))
             .catch(err => {
                 console.log(err);
                 res.status(400).json(err);
@@ -18,32 +39,18 @@ const thoughtController = {
                 res.status(400).json(err);
             });
     },
-    addThought({ params, body }, res) {
-        Thought.create(body)
-            .then(({ _id }) => {
-                return User.findOneAndUpdate(
-                    { _id: params.userId },
-                    { $push: { thoughts: _id } },
-                    { new: true }
-                );
-            })
-            .then(thoughtData => {
-                if (!thoughtData) {
-                    res.status(404).json({ message: 'Incorrect thought data!' });
-                    return;
-                }
-                res.json(webapi_db);
-            })
-            .catch(err => res.json(err));
-    },
+     // Update a current thought by ID
+
     updateThought({ params, body }, res) {
         Thought.findByIdAndUpdate({ _id: params.thoughtId }, body, { runValidators: true, new: true })
-            .then(thoughtData => {
+        .populate({path: 'reactions', select: '-__v'})  
+        .select('-___v')
+        .then(thoughtData => {
                 if (!thoughtData) {
                     res.status(404).json({ message: 'No user found with this ID!' });
                     return;
                 }
-                res.json(webapi_db);
+                res.json(thoughtData);
             })
             .catch(err => res.json(err));
     },
@@ -54,7 +61,7 @@ const thoughtController = {
                     res.status(404).json({ message: 'No user found with this ID!' });
                     return;
                 }
-                res.json(webapi_db);
+                res.json(thoughtData);
             })
             .catch(err => res.json(err));
     },
@@ -64,15 +71,19 @@ const thoughtController = {
             {$push: {reactions: body}},
             { new: true, runValidators: true }
         )
+        .populate({path: 'reactions', select: '-__v'})
+        .select('-__v')
         .then(thoughtData => {
             if (!thoughtData) {
                 res.status(404).json({ message: 'Incorrect reaction data!' });
                 return;
             }
-            res.json(webapi_db);
+            res.json(thoughtData);
         })
         .catch(err => res.json(err));
     },
+        // Delete a reaction by ID
+
     deleteReaction({params}, res){
         Thought.findOneAndUpdate(
             {_id: params.thoughtId},
@@ -84,7 +95,7 @@ const thoughtController = {
                 res.status(404).json({ message: 'Incorrect reaction data!' });
                 return;
             }
-            res.json(webapi_db);
+            res.json(thoughtData);
         })
         .catch(err => res.json(err));
     }

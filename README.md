@@ -61,3 +61,4 @@ Copyright (c) [2022] [CatFishChisel]
 - [GitHub](https://github.com/PhilemonKirlles 'GitHub')
 
 ---
+https://medium.com/@Hybeecodes/using-environment-variables-in-your-node-project-66f284cd9fe6
