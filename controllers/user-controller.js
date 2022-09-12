@@ -1,6 +1,7 @@
 const { User } = require('../models');
 
 const userController = {
+    // Get Users
 
     getAllUsers(req, res) {
         User.find({})
