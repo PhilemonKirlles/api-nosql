@@ -1,23 +1,26 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
-
+const path = require('path');
 const app = express();
+require('./routes')
 const PORT = process.env.PORT || 3001;
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-
 app.use(require('./routes'));
 
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/webapi_db',
+mongoose.connect('mongodb://127.0.0.1/webapi_db', () => {
+  console.log(`Connected to Mongoose: ${PORT}`);
+  (err) => {
+    console.log(`Error connecting to Mongoose Database: ${err}`);};
+},
+
+
+// mongoose.connect(
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
+   
+    // useCreateIndex: true,
+    // useFindAndModify: false
   }
 );
 
@@ -25,3 +28,4 @@ mongoose.connect(
 mongoose.set('debug', true);
 
 app.listen(PORT, () => console.log(`Connected on localhost: ${PORT}`));
+

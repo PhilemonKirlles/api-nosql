@@ -1,8 +1,10 @@
+const mongoose = require('mongoose');
+
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const reactionSchema = require('./Reaction');
 
-const ThoughtSchema = new Schema(
+const ThoughtSchema = new mongoose.Schema(
     {
         thoughtText: {
             type: String,

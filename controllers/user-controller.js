@@ -1,4 +1,8 @@
 const { User } = require('../models');
+const {thought} = require('../models/Thought')
+
+const { path } = require('../models/Reaction');
+
 
 const userController = {
     // Get Users
